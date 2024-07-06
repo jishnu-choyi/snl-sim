@@ -14,3 +14,6 @@ After filling it up, copy the last line to the following files in the folder pag
 2. snlData_custom_light.js
 
 Open this link on browser: http://localhost:3000/snl
+
+To edit playerData, pages/snl/snlData/snlData.ts
+Make sure playerIds are unique
