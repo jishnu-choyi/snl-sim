@@ -38,7 +38,7 @@ const playerData: T_playerData[] = [
 
 export const getSNLSimInput = (): T_snlSimInput => {
     return {
-        numGames: 100,
+        numGames: 500,
         maxThrowsPerGame: 1000,
         needs6ToStart: true,
         lightSideData: {
