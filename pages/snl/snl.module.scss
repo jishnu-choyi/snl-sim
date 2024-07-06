@@ -1,0 +1,29 @@
+.container {
+    height: calc(100vh - 32px);
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+}
+.settings-container {
+    width: 350px;
+    background: white;
+}
+
+.report-container {
+    width: 200px;
+    background: white;
+}
+
+.canvas-container {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+.snl-canvas {
+    background: white;
+    border: 1px solid var(--border);
+    height: calc(100vh - 32px);
+    width: calc(100vw - 566px);
+    margin-left: 8px;
+}

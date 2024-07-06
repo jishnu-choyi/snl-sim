@@ -1,0 +1,45 @@
+.form-control-slider {
+    width: calc(100% - 24px);
+    margin: 4px 12px 0px 12px !important;
+}
+.slider-label {
+    font-weight: 300;
+    font-size: 12px;
+    .highlight {
+        font-weight: 400;
+        color: var(--text-gray);
+    }
+}
+.slider-label.size-medium {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+.slider-con1 {
+    width: 100%;
+    display: flex;
+}
+.slider-con2 {
+    width: calc(100% - 0px);
+    padding: 0 4px 0 4px;
+}
+.slider-con2.size-medium {
+    width: calc(100% - 32px);
+    padding: 0 16px 0 16px;
+}
+
+.step-icon {
+    color: var(--icon-gray);
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 4px;
+}
+.step-icon:hover {
+    color: var(--gold);
+}
+.step-icon.disabled {
+    opacity: 0.5;
+    cursor: auto;
+}
+.step-icon.disabled:hover {
+    color: var(--icon-gray);
+}

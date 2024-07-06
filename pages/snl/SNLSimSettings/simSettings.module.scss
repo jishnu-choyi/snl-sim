@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.form-container {
+    width: 100%;
+    overflow-y: auto;
+    flex: 1;
+    margin-bottom: 32px;
+    margin-top: 0px;
+}
+.form-control {
+    width: calc(100% - 32px);
+    margin: 32px 16px 0px 16px !important;
+}
+.form-control-checkbox {
+    width: calc(100% - 32px);
+    margin: 8px 16px 0px 16px !important;
+    color: var(--text-gray);
+}
+.form-control-slider {
+    width: calc(100% - 64px);
+    margin: 32px 32px 0px 32px !important;
+    color: var(--text-gray);
+}
+.slider-label {
+    font-weight: 300;
+    font-size: 14px;
+}
+.form-control-radioGroup {
+    width: calc(100% - 32px);
+    margin: 8px 16px 0px 16px !important;
+    color: var(--text-gray);
+}
