@@ -12,10 +12,10 @@ import * as qd from "./commercial/snlData_quickDraw";
 import * as customLight from "./snlData_custom_light";
 import * as customDark from "./snlData_custom_dark";
 
-const snakeData_light: T_snakeData[] = [...customLight.getSnakeData()];
-const ladderData_light: T_ladderData[] = [...customLight.getLadderData()];
-const snakeData_dark: T_snakeData[] = [...customDark.getSnakeData()];
-const ladderData_dark: T_ladderData[] = [...customDark.getLadderData()];
+const snakeData_light: T_snakeData[] = [...ratna.getSnakeData()];
+const ladderData_light: T_ladderData[] = [...ratna.getLadderData()];
+const snakeData_dark: T_snakeData[] = [...fcry.getSnakeData()];
+const ladderData_dark: T_ladderData[] = [...fcry.getLadderData()];
 
 const playerData: T_playerData[] = [
     {
