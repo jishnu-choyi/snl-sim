@@ -5,15 +5,17 @@ import {
     T_snakeData,
     T_snlSimInput,
 } from "../snlTypes";
-import * as ratna from "./snlData_Ratnas_Magnetic";
-import * as fcry from "./snlData_FirstCry_carpet";
-import * as fsk from "./snlData_funskool";
-import * as qd from "./snlData_quickDraw";
+import * as ratna from "./commercial/snlData_Ratnas_Magnetic";
+import * as fcry from "./commercial/snlData_FirstCry_carpet";
+import * as fsk from "./commercial/snlData_funskool";
+import * as qd from "./commercial/snlData_quickDraw";
+import * as customLight from "./snlData_custom_light";
+import * as customDark from "./snlData_custom_dark";
 
-const snakeData_light: T_snakeData[] = [...ratna.getSnakeData()];
-const ladderData_light: T_ladderData[] = [...ratna.getLadderData()];
-const snakeData_dark: T_snakeData[] = [...ratna.getSnakeData()];
-const ladderData_dark: T_ladderData[] = [...ratna.getLadderData()];
+const snakeData_light: T_snakeData[] = [...customLight.getSnakeData()];
+const ladderData_light: T_ladderData[] = [...customLight.getLadderData()];
+const snakeData_dark: T_snakeData[] = [...customDark.getSnakeData()];
+const ladderData_dark: T_ladderData[] = [...customDark.getLadderData()];
 
 const playerData: T_playerData[] = [
     {
