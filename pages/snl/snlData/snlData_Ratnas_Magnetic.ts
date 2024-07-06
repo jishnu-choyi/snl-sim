@@ -2,34 +2,13 @@ import { T_ladderData, T_snakeData } from "../snlTypes";
 
 export const getSnakeData = (): T_snakeData[] => {
     return [
-        {
-            head: 97,
-            tail: 15,
-        },
-        {
-            head: 74,
-            tail: 35,
-        },
-        {
-            head: 63,
-            tail: 17,
-        },
-        {
-            head: 58,
-            tail: 40,
-        },
-        {
-            head: 52,
-            tail: 11,
-        },
-        {
-            head: 47,
-            tail: 4,
-        },
-        {
-            head: 37,
-            tail: 7,
-        },
+        { head: 97, tail: 14 },
+        { head: 74, tail: 35 },
+        { head: 63, tail: 17 },
+        { head: 58, tail: 40 },
+        { head: 52, tail: 11 },
+        { head: 47, tail: 4 },
+        { head: 37, tail: 7 },
     ];
 };
 export const getLadderData = (): T_ladderData[] => {

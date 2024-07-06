@@ -12,14 +12,24 @@ import * as qd from "./snlData_quickDraw";
 
 const snakeData_light: T_snakeData[] = [...ratna.getSnakeData()];
 const ladderData_light: T_ladderData[] = [...ratna.getLadderData()];
-const snakeData_dark: T_snakeData[] = [...fsk.getSnakeData()];
-const ladderData_dark: T_ladderData[] = [...fsk.getLadderData()];
+const snakeData_dark: T_snakeData[] = [...ratna.getSnakeData()];
+const ladderData_dark: T_ladderData[] = [...ratna.getLadderData()];
 
 const playerData: T_playerData[] = [
     {
+        id: "2",
         mode: E_gameSide.dark,
     },
     {
+        id: "4",
+        mode: E_gameSide.dark,
+    },
+    {
+        id: "1",
+        mode: E_gameSide.light,
+    },
+    {
+        id: "3",
         mode: E_gameSide.light,
     },
 ];

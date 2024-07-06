@@ -119,7 +119,7 @@ export default function SNLSimSettings() {
                     value={simInput.numGames}
                     unit={``}
                     min={1}
-                    max={1001}
+                    max={10001}
                     step={100}
                     precision={1}
                     fieldValue="numGames"

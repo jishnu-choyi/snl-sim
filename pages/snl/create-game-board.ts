@@ -67,10 +67,10 @@ export const createGameBoards = ({
     });
 
     const { players } = createPlayers({
-        playerData: snlSimInput.playerData,
         canvas,
         lightBoard,
         darkBoard,
+        snlSimInput,
     });
 
     const { setGamePrep } = simContext;
@@ -208,16 +208,18 @@ const createGameBoard = ({
 };
 
 const createPlayers = ({
-    playerData,
     canvas,
     lightBoard,
     darkBoard,
+    snlSimInput,
 }: {
-    playerData: T_playerData[];
     canvas: fabric.Canvas;
     lightBoard: T_gamePrepBoard;
     darkBoard: T_gamePrepBoard;
+    snlSimInput: T_snlSimInput;
 }) => {
+    const playerData = snlSimInput.playerData;
+
     //----create players---------
     const playerObjs: fabric.Object[] = [];
     const players: SNLPlayer[] = [];
@@ -227,6 +229,7 @@ const createPlayers = ({
             playerData: player,
             lightBoard,
             darkBoard,
+            snlSimInput,
         });
         players.push(t);
         playerObjs.push(t.playerObj);

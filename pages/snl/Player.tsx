@@ -1,5 +1,10 @@
 import { fabric } from "fabric";
-import { T_gamePrepBoard, T_playerData } from "./snlTypes";
+import {
+    E_gameSide,
+    T_gamePrepBoard,
+    T_playerData,
+    T_snlSimInput,
+} from "./snlTypes";
 import { isLadderStart, isSnakeHead } from "./sim-utils";
 import { computeAbsolutePosition, deleteItemByName } from "@/lib/fabric-utils";
 type T_playerOpts = {
@@ -7,6 +12,7 @@ type T_playerOpts = {
     playerData: T_playerData;
     darkBoard: T_gamePrepBoard;
     lightBoard: T_gamePrepBoard;
+    snlSimInput: T_snlSimInput;
 };
 
 export class SNLPlayer {
@@ -49,7 +55,7 @@ export class SNLPlayer {
         this.currentPosition = 0;
         this.verdict = "";
     }
-    play(diceValue: number) {
+    play(diceValue: number, { players }: { players: SNLPlayer[] }) {
         // console.log(`player ${this.opts.idp}:`, diceValue);
         this.numThrows++;
         if (!this.isInGame && diceValue === 6) {
@@ -77,19 +83,72 @@ export class SNLPlayer {
             tentativeNewPosition,
             currentBoard.boardData
         );
+        let newPosition = tentativeNewPosition;
         if (snakeCheck) {
-            this.setPosition(snakeCheck.tail);
-            if (snakeCheck.tail < 1) {
+            newPosition = snakeCheck.tail;
+            if (newPosition < 1) {
                 this.isInGame = false;
             }
         } else if (ladderCheck) {
-            this.setPosition(ladderCheck.end);
+            newPosition = ladderCheck.end;
         } else {
-            this.setPosition(tentativeNewPosition);
+            newPosition = tentativeNewPosition;
         }
+        this.setPosition(newPosition);
+        //If any other players exist in the same position, you might want to cut
+        this.tryCuttingOtherPlayers(newPosition, currentBoard, players);
+
+        if (
+            currentBoard.boardData.side === E_gameSide.light &&
+            this.opts.snlSimInput.cuttingEnabledOnLightSide
+        ) {
+        }
+
         return false;
     }
 
+    getCut() {
+        this.setPosition(0);
+        this.isInGame = false;
+    }
+    tryCuttingOtherPlayers(
+        newPosition: number,
+        currentBoard: T_gamePrepBoard,
+        players: SNLPlayer[]
+    ) {
+        const currentBoardSide = currentBoard.boardData.side;
+        const { cuttingEnabledOnDarkSide, cuttingEnabledOnLightSide } =
+            this.opts.snlSimInput;
+        if (currentBoardSide === E_gameSide.dark && cuttingEnabledOnDarkSide) {
+            const otherPlayers = players.filter((item) => {
+                return (
+                    item.opts.playerData.mode === E_gameSide.dark &&
+                    item.opts.playerData.id !== this.opts.playerData.id
+                );
+            });
+            otherPlayers.forEach((otherPlayer) => {
+                if (otherPlayer.currentPosition === newPosition) {
+                    otherPlayer.getCut();
+                }
+            });
+        }
+        if (
+            currentBoardSide === E_gameSide.light &&
+            cuttingEnabledOnLightSide
+        ) {
+            const otherPlayers = players.filter((item) => {
+                return (
+                    item.opts.playerData.mode === E_gameSide.light &&
+                    item.opts.playerData.id !== this.opts.playerData.id
+                );
+            });
+            otherPlayers.forEach((otherPlayer) => {
+                if (otherPlayer.currentPosition === newPosition) {
+                    otherPlayer.getCut();
+                }
+            });
+        }
+    }
     setWin() {
         this.isInGame = false;
         this.verdict = "won";

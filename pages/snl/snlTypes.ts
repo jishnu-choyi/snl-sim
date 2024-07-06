@@ -22,6 +22,7 @@ export type T_ladderData = {
     name?: string;
 };
 export type T_playerData = {
+    id: string;
     mode: E_gameSide;
 };
 export type T_boardData = {

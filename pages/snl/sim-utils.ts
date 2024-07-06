@@ -2,6 +2,7 @@ import { rnd1, rnd4 } from "@/lib/utils";
 import { getSNLSimInput } from "./snlData/snlData";
 import { T_snlSimContext } from "./snlSimContext";
 import { T_boardData, T_snlSimOutput } from "./snlTypes";
+import { SNLPlayer } from "./Player";
 
 export const startSimulation = ({
     simContext,
@@ -44,12 +45,15 @@ export const startSimulation = ({
         players.forEach((player) => {
             player.reset();
         });
+        const shuffledPlayers = shufflePlayers(players);
         for (let throwCount = 0; throwCount < maxThrowsPerGame; throwCount++) {
             const diceValue = throwDice();
-            const currentPlayer = players[playerTurn];
-            const playerWon = currentPlayer.play(diceValue);
+            const currentPlayer = shuffledPlayers[playerTurn];
+            const playerWon = currentPlayer.play(diceValue, {
+                players: shuffledPlayers,
+            });
             if (diceValue !== 6) {
-                playerTurn = (playerTurn + 1) % players.length;
+                playerTurn = (playerTurn + 1) % shuffledPlayers.length;
             }
             if (playerWon) {
                 //update report
@@ -108,3 +112,11 @@ export const isSnakeHead = (position: number, boardData: T_boardData) => {
     if (snake) return snake;
     else return false;
 };
+
+function shufflePlayers(players: SNLPlayer[]) {
+    for (let i = players.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [players[i], players[j]] = [players[j], players[i]];
+    }
+    return players;
+}
