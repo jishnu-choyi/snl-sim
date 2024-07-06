@@ -1,5 +1,8 @@
 import { T_clamp } from "@/lib/types/types2d";
 
+export const DEG2RAD = Math.PI / 180;
+export const RAD2DEG = 180 / Math.PI;
+
 export const clampCheck = (v: number, clamp: T_clamp) => {
     const tol = clamp.tol || 0;
     return v > clamp.max - tol ? 1 : v < clamp.min + tol ? -1 : 0;

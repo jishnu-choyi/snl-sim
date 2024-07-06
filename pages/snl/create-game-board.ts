@@ -12,10 +12,11 @@ import {
     T_snlSimInput,
 } from "./snlTypes";
 import { T_point2d } from "@/lib/types/types2d";
-import { RAD2DEG } from "three/src/math/MathUtils";
+// import { RAD2DEG } from "three/src/math/MathUtils";
 import { checkSimInputValidity } from "./validate-data";
 import { T_snlSimContext } from "./snlSimContext";
 import { SNLPlayer } from "./Player";
+import { RAD2DEG } from "three/src/math/MathUtils.js";
 
 export const createGameBoards = ({
     canvas,
