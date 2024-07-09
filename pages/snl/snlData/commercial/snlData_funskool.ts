@@ -1,4 +1,4 @@
-import { T_ladderData, T_snakeData } from "../snlTypes";
+import { T_ladderData, T_snakeData } from "../../snlTypes";
 
 export const getSnakeData = (): T_snakeData[] => {
     return [
