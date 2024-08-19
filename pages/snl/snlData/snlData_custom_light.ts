@@ -2,27 +2,25 @@ import { T_ladderData, T_snakeData } from "../snlTypes";
 
 export const getSnakeData = (): T_snakeData[] => {
     return [
-        { head: 97, tail: 14 },
-        { head: 74, tail: 35 },
-        { head: 63, tail: 17 },
-        { head: 58, tail: 40 },
-        { head: 52, tail: 11 },
-        { head: 47, tail: 4 },
-        { head: 37, tail: 7 },
+        { head: 16, tail: 6 },
+        { head: 47, tail: 26 },
+        { head: 49, tail: 11 },
+        { head: 66, tail: 53 },
+        { head: 62, tail: 19 },
+        { head: 87, tail: 55 },
+        { head: 93, tail: 73 },
+        { head: 95, tail: 75 },
     ];
 };
 export const getLadderData = (): T_ladderData[] => {
     return [
+        { start: 3, end: 22 },
         { start: 8, end: 26 },
-        { start: 19, end: 38 },
-        { start: 21, end: 82 },
-        { start: 28, end: 53 },
-        { start: 36, end: 57 },
-        { start: 43, end: 77 },
-        { start: 51, end: 91 },
-        { start: 54, end: 88 },
-        { start: 61, end: 99 },
-        { start: 62, end: 96 },
-        { start: 66, end: 87 },
+        { start: 20, end: 38 },
+        { start: 27, end: 56 },
+        { start: 50, end: 91 },
+        { start: 63, end: 81 },
+        { start: 70, end: 89 },
+        { start: 79, end: 98 },
     ];
 };

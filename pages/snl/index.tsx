@@ -13,6 +13,7 @@ import SNLSimReport from "./SNLSimReport";
 import { createGameBoards } from "./create-game-board";
 import { getSNLSimInput } from "./snlData/snlData";
 import SNLSimContext, { SNLSimProvider } from "./snlSimContext";
+import { createGameBoards2 } from "./create-game-board2";
 
 export default function SNLPage() {
     const { isPageLoading, isWaiting } = useContext(WaitContext);
@@ -61,7 +62,7 @@ function SimContent() {
         if (!canvas) return;
         initialiseCanvasBehaviour(canvas);
         if (!gamePrep) {
-            createGameBoards({
+            createGameBoards2({
                 canvas,
                 snlSimInput,
                 simContext,
