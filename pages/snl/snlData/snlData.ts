@@ -22,23 +22,23 @@ const playerData: T_playerData[] = [
         id: "2",
         mode: E_gameSide.dark,
     },
-    {
-        id: "4",
-        mode: E_gameSide.dark,
-    },
+    // {
+    //     id: "4",
+    //     mode: E_gameSide.dark,
+    // },
     {
         id: "1",
         mode: E_gameSide.light,
     },
-    {
-        id: "3",
-        mode: E_gameSide.light,
-    },
+    // {
+    //     id: "3",
+    //     mode: E_gameSide.light,
+    // },
 ];
 
 export const getSNLSimInput = (): T_snlSimInput => {
     return {
-        numGames: 500,
+        numGames: 10000,
         maxThrowsPerGame: 1000,
         needs6ToStart: true,
         lightSideData: {

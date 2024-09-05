@@ -14,6 +14,7 @@ import { createGameBoards } from "./create-game-board";
 import { getSNLSimInput } from "./snlData/snlData";
 import SNLSimContext, { SNLSimProvider } from "./snlSimContext";
 import { createGameBoards2 } from "./create-game-board2";
+import { createGameBoards3 } from "./create-game-board3";
 
 export default function SNLPage() {
     const { isPageLoading, isWaiting } = useContext(WaitContext);
